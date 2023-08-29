@@ -10,7 +10,7 @@ import pandas as pd
 feature_name = ['Year', 'remittance_received', 'country_name', 'new_income_group', 'new_region']
 
 
-path = "Deployment\model_3.pkl"
+path = "model_3.pkl"
 
 def load_model(path):
     with open(path, "rb") as mod:
