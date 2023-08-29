@@ -4,7 +4,7 @@ import pickle
 import pandas as pd
 
 
-scaled_data = pd.read_csv("C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/scaled_data.csv")
+scaled_data = pd.read_csv("scaled_data.csv")
 
 X = scaled_data.drop(columns = ['gdp','unemployment_rate']) # input features
 Y = scaled_data[['gdp','unemployment_rate']]
