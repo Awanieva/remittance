@@ -3,14 +3,6 @@ import numpy as np
 import pickle
 import pandas as pd
 
-
-filename = "scaled_data.csv"
-scaled_data = pd.read_csv(filename)
-
-X = scaled_data.drop(columns = ['gdp','unemployment_rate']) # input features
-Y = scaled_data[['gdp','unemployment_rate']]
-
-
 # feature_name = ['population', 'remittance_growth_rate', 'remittance_paid', 'remittance_per_capita', 'remittance_received', 
 #                 'remittance_volatility', 'unemployment_rate_change', 'net_migration', 'remittance_to_gdp_ratio','country_name',
 #                 'new_income_group','new_region']
@@ -18,17 +10,17 @@ Y = scaled_data[['gdp','unemployment_rate']]
 feature_name = ['Year', 'remittance_received', 'country_name', 'new_income_group', 'new_region']
 
 
-path = "model_3.pkl"
+path = "Deployment\model_3.pkl"
 
 def load_model(path):
     with open(path, "rb") as mod:
         model = pickle.load(mod)
     return model
 
-with open("min_max_dict.json", 'rb') as fp:
+with open('Deployment\min_max_dict.json', 'rb') as fp:
     min_max_dict = pickle.load(fp)
 
-with open('cat_dict.json', "rb") as fp:
+with open('Deployment\cat_dict.json', "rb") as fp:
     cat_dict = pickle.load(fp)
 
 
@@ -53,7 +45,7 @@ def scale_value(feature_name, value, dic = min_max_dict):
 
 def main():
     # Bank Churn Prediction App
-    st.title("Remmitance Prediction")
+    st.title("Remittance Patterns and Economic Development")
     activities = ["Introduction", "Predictions", "About"]
     choice = st.sidebar.selectbox("Select Activity", activities)
     
@@ -71,15 +63,37 @@ def main():
         st.markdown(html_temp_home1, unsafe_allow_html=True)
     
         st.write("""
+                 - This project delves into the intricate relationship between remittance patterns and various economic indicators,
+                 with a focus on understanding their influence on Gross Domestic Product (GDP) and unemployment rates.
+                - And also, to deploy a model that will predict the GDP, remittance-to-GDP ratio and unemployment-rate of a country based on its remittance flow pattern.
             """)
         st.write("""
-                 
+                 # Team members
+                - Confidence Chinelo Ojiako (Project Lead)
+                - Deya Chatterjee (Assistant project lead)
+                - Miracle Uche (Query Analyst)
+                - Arundarasi Rajendran
+                - Anih Nathan Chizoba 
+                - Adeniyi Olaolu Peter
+                - Akinade Phillip Akintoye
+                - Olalekan Okewale
+                - Ibrahim Abdulsalam Abdullahi
+                - INCREASE CHRISTIAN
+                - Etietop Udofia
+                - Carla Bailón
+                - Akanbi Abiodun
+                - Kawonise Abdullateef
+                - Joseph Ngota Chilo
+                - Abdulkareem Sikirulahi Opeyemi
+                - Bamiteko Ibiduni Adekemi
+                - Sunday Kingsley
+                - Benjamin Lawani
                  
                  """)
         
         
     elif choice == "Predictions":
-        st.subheader("Remmitance")
+        st.subheader("Prediction")
         
         Year_class = st.number_input("Enter the year:")
         Year_scaled = scale_value("Year", Year_class)
@@ -129,7 +143,9 @@ def main():
 
         html_temp4 = """
                                         <div style="background-color:#4073FF;padding:10px">
-                                        <h4 style="color:white;text-align:center;">This application is developed by team Catboost for the purpose of .</h4>
+                                        <h4 style="color:white;text-align:center;">This application was developed by team Catboost 
+                                        for the purpose of predicting the GDP, the remittance-to-GDP ratio and unemployment-rate of a country based on its remittance
+                                        flow pattern.</h4>
                                         <h4 style="color:white;text-align:center;">Thanks for Visiting</h4>
                                         </div>
                                         <br></br>
