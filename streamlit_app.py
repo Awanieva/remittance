@@ -4,7 +4,7 @@ import pickle
 import pandas as pd
 
 
-filename = "Deployment\scaled_data.csv"
+filename = "C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/scaled_data.csv"
 scaled_data = pd.read_csv(filename)
 
 X = scaled_data.drop(columns = ['gdp','unemployment_rate']) # input features
@@ -18,17 +18,17 @@ Y = scaled_data[['gdp','unemployment_rate']]
 feature_name = ['Year', 'remittance_received', 'country_name', 'new_income_group', 'new_region']
 
 
-path = "Deployment\model_3.pkl"
+path = "C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/model_3.pkl"
 
 def load_model(path):
     with open(path, "rb") as mod:
         model = pickle.load(mod)
     return model
 
-with open('Deployment\min_max_dict.json', 'rb') as fp:
+with open('C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/min_max_dict.json', 'rb') as fp:
     min_max_dict = pickle.load(fp)
 
-with open('Deployment\cat_dict.json', "rb") as fp:
+with open('C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/cat_dict.json', "rb") as fp:
     cat_dict = pickle.load(fp)
 
 
