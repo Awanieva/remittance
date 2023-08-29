@@ -17,10 +17,10 @@ def load_model(path):
         model = pickle.load(mod)
     return model
 
-with open('Deployment\min_max_dict.json', 'rb') as fp:
+with open('min_max_dict.json', 'rb') as fp:
     min_max_dict = pickle.load(fp)
 
-with open('Deployment\cat_dict.json', "rb") as fp:
+with open('cat_dict.json', "rb") as fp:
     cat_dict = pickle.load(fp)
 
 
