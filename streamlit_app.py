@@ -17,7 +17,7 @@ Y = scaled_data[['gdp','unemployment_rate']]
 feature_name = ['Year', 'remittance_received', 'country_name', 'new_income_group', 'new_region']
 
 
-path = "C:/Users/chine/Downloads/Deployment_zipp_1/Deployment/model_3.pkl"
+path = "model_3.pkl"
 
 def load_model(path):
     with open(path, "rb") as mod:
