@@ -5,6 +5,7 @@ import pandas as pd
 
 
 filename = "Deployment\scaled_data.csv"
+scaled_data = pd.read_csv(filename)
 
 X = scaled_data.drop(columns = ['gdp','unemployment_rate']) # input features
 Y = scaled_data[['gdp','unemployment_rate']]
